@@ -8,7 +8,7 @@ Here is the list of topics we will be covering in this tutorial:
 * [Introduction to Spring Framework](#)
     - [What is Spring?](#what-is-spring)
     - [History and evolution of Spring Framework](#history-and-evolution-of-spring-framework)
-    - [Advantages of using Spring Framework](#)
+    - [Advantages and disadvantages of using Spring Framework](#advantages-and-disadvantages)
     - [The Spring ecosystem](#)
 * [Inversion of Control (IoC) and Dependency Injection (DI)](#)
     - [Understanding IoC and DI](#)
@@ -75,3 +75,22 @@ Over the years, Spring Framework has evolved and expanded to become a comprehens
 Spring Framework continued to expand its reach with the release of Spring Boot in 2014. Spring Boot is a convention-over-configuration framework that makes it easy to create standalone, production-grade Spring applications with minimal configuration. Spring Boot has been a game-changer for Spring Framework, making it more accessible and appealing to developers who are looking for a simpler way to build enterprise applications.
 
 Today, Spring Framework has become a popular choice for building enterprise-level applications, and many top companies have recognized its benefits and adopted it in their software development. Some of the notable companies that use Spring Framework include Netflix, Amazon, LinkedIn, Salesforce, and Adobe. It is also known for its flexibility, modularity, and ease of use, and has a large and active community of developers and users. The Spring ecosystem has also expanded to include other projects such as Spring Security, Spring Data, and Spring Cloud, which provide additional functionality and integrations for building complex applications.
+
+## Advantages and disadvantages of Spring Framework
+There are many advantages to using the Spring Framework for building enterprise applications. Here are some of the key benefits:
+
+-   Lightweight: Spring is a lightweight framework, meaning that it has a small footprint and doesn't require a lot of resources to run. This makes it easy to deploy and run on different platforms.
+
+-   Modular: Spring is a modular framework, which means that you can use only the modules you need for your application. This reduces the complexity of your code and makes it easier to maintain.
+
+-   Inversion of Control (IoC): Spring makes use of IoC, which means that it takes care of object creation and dependency injection, allowing you to focus on the business logic of your application.
+
+-   Testability: Spring makes it easy to write unit tests and integration tests for your application, which helps to ensure that your code is reliable and works as expected.
+
+-   Flexibility: Spring is highly configurable and customizable, which means that you can adapt it to the specific needs of your application.
+
+-   Community support: Spring has a large and active community of developers who contribute to its development and offer support to other developers. This means that there is a wealth of resources available to help you with your Spring projects.
+
+-   Integration: Spring integrates with a wide range of other frameworks and technologies, making it easy to use with other tools in your application stack.
+
+If you're not familiar with some of the concepts like IoC, DI, etc., don't worry! We'll cover them soon ;)
