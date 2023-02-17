@@ -8,7 +8,8 @@ Here is the list of topics we will be covering in this tutorial:
 * [Introduction to Spring Framework](#)
     - [What is Spring?](#what-is-spring)
     - [History and evolution of Spring Framework](#history-and-evolution-of-spring-framework)
-    - [Advantages and disadvantages of using Spring Framework](#advantages-and-disadvantages)
+    - [Advantages and disadvantages of using Spring Framework](#advantages-and-disadvantages-of-using-spring-framework)
+    - [Alternative Frameworks to Spring](#alternative-frameworks-to-spring)
     - [The Spring ecosystem](#)
 * [Inversion of Control (IoC) and Dependency Injection (DI)](#)
     - [Understanding IoC and DI](#)
@@ -76,7 +77,7 @@ Spring Framework continued to expand its reach with the release of Spring Boot i
 
 Today, Spring Framework has become a popular choice for building enterprise-level applications, and many top companies have recognized its benefits and adopted it in their software development. Some of the notable companies that use Spring Framework include Netflix, Amazon, LinkedIn, Salesforce, and Adobe. It is also known for its flexibility, modularity, and ease of use, and has a large and active community of developers and users. The Spring ecosystem has also expanded to include other projects such as Spring Security, Spring Data, and Spring Cloud, which provide additional functionality and integrations for building complex applications.
 
-## Advantages and disadvantages of Spring Framework
+## Advantages and disadvantages of using Spring Framework
 There are many advantages to using the Spring Framework for building enterprise applications. Here are some of the key benefits:
 
 -   Lightweight: Spring is a lightweight framework, meaning that it has a small footprint and doesn't require a lot of resources to run. This makes it easy to deploy and run on different platforms.
@@ -93,4 +94,33 @@ There are many advantages to using the Spring Framework for building enterprise 
 
 -   Integration: Spring integrates with a wide range of other frameworks and technologies, making it easy to use with other tools in your application stack.
 
-If you're not familiar with some of the concepts like IoC, DI, etc., don't worry! We'll cover them soon ;)
+While there are many advantages to using Spring Framework, there are also some potential disadvantages to keep in mind:
+
+-   Complexity: Spring is a large framework with many modules, which can make it overwhelming for beginners. The steep learning curve may deter some developers from using it.
+
+-   Performance: While Spring is generally considered to be a high-performance framework, it can add overhead to your application due to its many features and layers.
+
+-   Configuration: Spring's flexible configuration options can also be a disadvantage, as it can be difficult to determine the best way to configure your application. It may also take some time to configure your project correctly, which can lead to frustration for some developers.
+
+-   Over-engineering: With its many features and modules, it can be tempting to over-engineer your application with Spring. This can lead to unnecessarily complex code and slower development times.
+
+-   Dependency Injection: While Dependency Injection is a core feature of Spring, some developers may find the use of annotations and XML configurations to be verbose and difficult to maintain.
+
+It's important to keep these potential disadvantages in mind when considering whether to use Spring Framework. However, many of these issues can be mitigated with careful planning and best practices, and the benefits of using Spring can often outweigh the drawbacks.
+
+**If you're not familiar with some of the concepts like IoC, DI, etc., don't worry! We'll cover them soon ;).**
+
+## Alternative Frameworks to Spring
+There are several alternative frameworks that can be used instead of Spring Framework depending on the specific use case and requirements. Here are a few examples:
+
+-   Java EE (Jakarta EE): This is a set of specifications and APIs for enterprise Java, and provides similar features to Spring, such as dependency injection, transaction management, and web development capabilities.
+
+-   Micronaut: This is a modern JVM-based framework that provides features like dependency injection, serverless functions, and cloud-native development.
+
+-   Quarkus: This is another modern JVM-based framework that provides fast startup times and low memory footprint, and is suitable for building microservices.
+
+-   Play Framework: This is a web application framework that uses the Scala programming language and provides features like routing, templating, and testing support.
+
+-   Vert.x: This is a lightweight and high-performance reactive framework for building event-driven applications, and provides features like asynchronous I/O, routing, and clustering.
+
+It's important to note that each of these frameworks has its own strengths and weaknesses, and the choice of which one to use ultimately depends on the specific requirements of the project.
