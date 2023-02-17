@@ -1,21 +1,23 @@
-Welcome to this tutorial on the Spring Core module! In this tutorial, we will cover all the important concepts, best practices, and advanced topics related to Spring Core. Spring Core is the foundation of the entire Spring Framework and provides essential features like dependency injection, inversion of control, and application context management.
+#Welcome to this tutorial on the Spring Core module! 
+
+In this tutorial, we will cover all the important concepts, best practices, and advanced topics related to Spring Core. Spring Core is the foundation of the entire Spring Framework and provides essential features like dependency injection, inversion of control, and application context management.
 
 Here is the list of topics we will be covering in this tutorial:
 
-*[Introduction to Spring Framework](#)
-  **What is Spring?
-  **History and evolution of Spring Framework
-  **Advantages of using Spring Framework
-  **The Spring ecosystem
-*[Inversion of Control (IoC) and Dependency Injection (DI)](#)
+* [Introduction to Spring Framework](#)
+  ** What is Spring?
+  ** History and evolution of Spring Framework
+  ** Advantages of using Spring Framework
+  ** The Spring ecosystem
+* [Inversion of Control (IoC) and Dependency Injection (DI)](#)
 
-**Understanding IoC and DI
-**How Spring implements IoC and DI
-**The BeanFactory and ApplicationContext
-**Bean scopes and lifecycle
-**Configuration options for Spring Beans
-**Profiles and environments in Spring
-*[Spring Annotations and Stereotypes]
+** Understanding IoC and DI
+** How Spring implements IoC and DI
+** The BeanFactory and ApplicationContext
+** Bean scopes and lifecycle
+** Configuration options for Spring Beans
+** Profiles and environments in Spring
+* [Spring Annotations and Stereotypes]
 
 @Component, @Service, @Controller, and @Repository annotations
 @Autowired and other DI annotations
