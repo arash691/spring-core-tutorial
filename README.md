@@ -6,7 +6,7 @@ Spring Core is the foundation of the entire Spring Framework and provides essent
 Here is the list of topics we will be covering in this tutorial:
 
 * [Introduction to Spring Framework](#)
-    - [What is Spring?](#)
+    - [What is Spring?](#what-is-spring)
     - [History and evolution of Spring Framework](#)
     - [Advantages of using Spring Framework](#)
     - [The Spring ecosystem](#)
@@ -56,3 +56,13 @@ In the Spring Testing section, we'll explore unit testing and integration testin
 Finally,The best practices and common pitfalls section covers common Spring anti-patterns, tips for writing clean and maintainable code, and best practices for testing Spring applications.
 
 We encourage you to let us know your feedback and suggestions by opening an issue in our repository. We also welcome contributions from the community, so if you have any improvements or new sections to add, feel free to open a pull request. Let's get started!
+
+## What is Spring?
+Spring is a popular open-source application framework for building enterprise-level Java applications. It provides a comprehensive programming and configuration model for modern Java-based enterprise applications. Spring is designed to address the complexity and challenges of enterprise application development by providing an easy-to-use, modular and flexible programming model.
+
+Spring's core philosophy is based on the principles of Inversion of Control (IoC) and Dependency Injection (DI). These principles provide a way to remove the hard-coded dependencies and configurations that traditionally exist in application development. By using IoC and DI, developers can easily manage the dependencies and configurations of their application components, resulting in more flexible, maintainable and testable code.
+
+Spring provides many modules that can be used independently or combined to create a comprehensive framework for building enterprise-level applications. The Spring Core module is the foundation of the Spring Framework and provides the fundamental building blocks for application development. This module includes features such as dependency injection, event handling, resource management, and more.
+
+In addition to the Spring Core module, Spring also provides a wide range of other modules and extensions, including Spring Boot, Spring Security, Spring Data, Spring Cloud, and many others. These modules and extensions provide additional functionality and features for building web applications, microservices, and other types of applications.
+
