@@ -1,4 +1,5 @@
 # Welcome to this tutorial on the Spring Core module! 
+![alt text](https://spring.io/img/spring-2.svg)
 
 In this tutorial, we will cover all the important concepts, best practices, and advanced topics related to Spring Core. 
 Spring Core is the foundation of the entire Spring Framework and provides essential features like dependency injection, inversion of control, and application context management.
@@ -15,7 +16,7 @@ Here is the list of topics we will be covering in this tutorial:
         -   [Why Spring is More Popular](#why-spring-is-more-popular)
         -   [Jakarta EE compare to Spring](#jakarta-ee-compare-to-spring)
         -   [Does it mean they are bad solutions compared to the spring framework](#does-it-mean-they-are-bad-solutions-compared-to-the-spring-framework)
-    - [The Spring ecosystem](#)
+    - [The Spring ecosystem](#the-spring-ecosystem)
 * [Inversion of Control (IoC) and Dependency Injection (DI)](#)
     - [Understanding IoC and DI](#)
     - [How Spring implements IoC and DI](#)
@@ -225,3 +226,22 @@ These are just a few examples of the many companies and organizations using Jaka
 Java EE/Jakarta EE provides a comprehensive set of specifications and APIs for building enterprise applications, including web services, messaging, persistence, and security, among others. It has a large ecosystem of tools and frameworks that can be used to simplify development and deployment, such as Apache TomEE, WildFly, and Open Liberty.
 
 The choice between using Spring and Java EE/Jakarta EE ultimately depends on the specific needs of the project and the preferences of the development team. Both have their own advantages and disadvantages, and it's important to carefully evaluate them before making a decision.
+
+## The spring ecosystem
+The Spring Framework is a large and versatile ecosystem with many different modules that can be used in combination to create a wide variety of applications. Some of the main modules in the Spring Framework include:
+
+Spring Core: This module provides the fundamental building blocks of the Spring Framework, such as Inversion of Control (IoC) and Dependency Injection (DI).
+
+Spring Data: This module provides a set of utilities and templates for working with different kinds of data stores, such as relational databases, NoSQL databases, and in-memory data grids.
+
+Spring Web MVC: This module provides a Model-View-Controller (MVC) framework for building web applications using Spring. It also includes support for handling web requests and responses, as well as a variety of view technologies.
+
+Spring Security: This module provides a comprehensive security framework for Spring-based applications. It includes features such as authentication, authorization, and session management, as well as support for common security protocols such as OAuth and OpenID Connect.
+
+Spring Integration: This module provides a set of tools for building messaging-based applications using Spring. It includes support for various messaging patterns such as pipes and filters, as well as adapters for integrating with various messaging systems.
+
+Spring Batch: This module provides a framework for building batch processing applications using Spring. It includes support for batch processing features such as chunking, retrying, and skipping.
+
+Spring Cloud: This module provides a set of tools and frameworks for building cloud-native applications using Spring. It includes features such as service discovery, distributed configuration, and circuit breaking, as well as support for various cloud platforms.
+
+These modules, among others, make up the Spring ecosystem, providing developers with a wide range of tools to choose from when building their applications. By using the right combination of modules, developers can create applications that are efficient, scalable, and maintainable.
