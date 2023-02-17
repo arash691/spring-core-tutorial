@@ -10,6 +10,11 @@ Here is the list of topics we will be covering in this tutorial:
     - [History and evolution of Spring Framework](#history-and-evolution-of-spring-framework)
     - [Advantages and disadvantages of using Spring Framework](#advantages-and-disadvantages-of-using-spring-framework)
     - [Alternative Frameworks to Spring](#alternative-frameworks-to-spring)
+    - [Spring Framework vs Java EE](#spring-framework-vs-java-ee)
+        -   [Which One to Choose](#which-one-to-choose)
+        -   [Why Spring is More Popular](#why-spring-is-more-popular)
+        -   [Jakarta EE compare to Spring](#jakarta-ee-compare-to-spring)
+        -   [Does it mean they are bad solutions compared to the spring framework](#does-it-mean-they-are-bad-solutions-compared-to-the-spring-framework)
     - [The Spring ecosystem](#)
 * [Inversion of Control (IoC) and Dependency Injection (DI)](#)
     - [Understanding IoC and DI](#)
@@ -124,3 +129,99 @@ There are several alternative frameworks that can be used instead of Spring Fram
 -   Vert.x: This is a lightweight and high-performance reactive framework for building event-driven applications, and provides features like asynchronous I/O, routing, and clustering.
 
 It's important to note that each of these frameworks has its own strengths and weaknesses, and the choice of which one to use ultimately depends on the specific requirements of the project.
+
+## Spring Framework vs Java EE
+
+### Which One to Choose?
+
+Both Spring and Java EE (now Jakarta EE) are powerful frameworks for building enterprise-level applications in Java. Deciding which one to learn depends on various factors, including the needs of your project and the community support.
+
+### Why Spring is More Popular?
+
+Spring Framework is more popular than Java EE for several reasons. Firstly, Spring was introduced in 2002, while Java EE was released in 1999, which gave Spring a head start in popularity. Secondly, Spring's architecture provides a lightweight and flexible approach to developing enterprise applications, making it easier for developers to work with. In contrast, Java EE's architecture can be more complex, and it can be harder for developers to find the right tools and frameworks for their projects.
+
+Another reason for Spring's popularity is its community support. Spring has a large and active community that provides extensive documentation, tutorials, and resources, making it easier for developers to learn and use the framework. The Spring community also actively supports the development of new Spring-based tools and libraries, which further increases its popularity.
+
+That being said, Java EE has its own advantages, such as providing a comprehensive set of APIs and specifications for building enterprise applications, and being backed by a well-established industry consortium (Eclipse Foundation). Ultimately, the choice between Spring and Java EE (Jakarta EE) depends on the specific needs and goals of your project.
+
+**Let's see in action what Spring provides for us!**
+
+Spring Framework simplifies application development in several ways. One of the key features of Spring is its implementation of Inversion of Control (IoC) and Dependency Injection (DI).
+
+With IoC, instead of your application code instantiating objects directly, the framework creates and manages the objects for you. This means that your code only needs to focus on using the objects, rather than creating and managing them.
+
+Dependency Injection is a key aspect of IoC, where the framework manages dependencies between objects. Dependencies are essentially services or resources that an object requires to function correctly. By using DI, the framework automatically provides these dependencies to the objects that need them.
+
+To illustrate this concept, consider a simple example. Let's say we have a web application that uses a database to store user information. We would normally create a UserDao class to handle the interactions with the database.
+
+```java
+public class UserServlet extends HttpServlet {
+  private UserDao userDao = new UserDao();
+  // servlet methods that use the userDao object
+}
+```
+However, with Spring, we can instead define the *UserDao* object as a Spring Bean and let the framework handle its creation and dependency injection.
+
+To do this, we would create a configuration file that defines the *UserDao* Bean:
+
+```java
+@Configuration
+public class AppConfig {
+  @Bean
+  public UserDao userDao() {
+    return new UserDao();
+  }
+}
+```
+
+We would also need to annotate our servlet to indicate that it requires a *UserDao* dependency:
+```java
+public class UserServlet extends HttpServlet {
+  @Autowired
+  private UserDao userDao;
+  // servlet methods that use the userDao object
+}
+```
+With these changes, Spring automatically creates the UserDao object and injects it into our servlet, eliminating the need for manual object creation and dependency management.
+
+Let's consider the same example of creating a web application with a form that saves data to a database. Here is how it might look in a Java EE application:
+
+-   First, we would need to create a database connection pool and a datasource, which involves writing code to define a JNDI name, configure the database driver, set connection properties, and so on. This can be a complex and time-consuming task.
+
+-   Next, we would need to define our data model using JPA annotations, which requires understanding the JPA API and the object-relational mapping (ORM) concepts that it employs. We would need to write code to create the persistence unit, configure the entity manager, and handle transactions.
+
+-   Then, we would need to create a servlet or JSP to handle the HTTP request and process the form data. We would need to write code to parse the request parameters, validate the input, and use the entity manager to save the data to the database.
+
+-  Finally, we would need to deploy the application to a server, which can involve configuring deployment descriptors, libraries, and other settings.
+
+As you can see, this approach involves a lot of boilerplate code, configuration, and setup. While Java EE has evolved to become more lightweight and modular, it still requires a significant amount of knowledge and experience to work with effectively.
+
+In contrast, Spring Framework simplifies many of these tasks by providing a set of easy-to-use, pre-built components and abstractions. 
+For example, Spring provides a "data access object" (DAO) pattern that abstracts away the details of creating database connections, executing queries, and handling exceptions. Spring also provides a "controller" abstraction that handles the HTTP request and provides a simple way to process the form data and pass it to the DAO.
+
+### Jakarta EE compare to Spring
+Java EE has evolved significantly in recent years with the adoption of Jakarta EE, which is now developed by the Eclipse Foundation. Jakarta EE has made several improvements to simplify the development of enterprise applications using Java. Jakarta EE includes a wide range of APIs that provide different services such as messaging, security, and persistence, and it also includes a web application framework called JavaServer Faces (JSF).
+
+However, while Jakarta EE has made significant progress in simplifying enterprise development with Java, it still requires more configuration and boilerplate code than Spring. For example, configuring a data source in Jakarta EE can still require multiple XML files, whereas in Spring, it can be done with a single annotation.
+
+That being said, choosing between Spring and Jakarta EE should depend on the specific requirements of your project and your team's experience and preferences. Both frameworks have their strengths and weaknesses, and choosing one over the other is a matter of evaluating these factors and deciding which one is the best fit for your needs.
+
+### Does it mean they are bad solutions compared to the spring framework?!
+
+No, it doesn't mean that Java EE or Jakarta EE are bad solutions. They are still widely used in enterprise applications, and many companies and developers continue to use them to build robust and scalable applications.
+
+Some of the top companies using Jakarta EE include:
+
+-   Oracle : as the main contributor and supporter of Jakarta EE, Oracle uses it extensively in their own products and services.
+-   IBM : a major player in the enterprise software market, IBM has been using Java EE for many years and continues to use Jakarta EE in its products and services.
+-   Red Hat : a leading provider of open source solutions, Red Hat has been a long-time supporter of Java EE and now Jakarta EE, and uses it extensively in its own products and services.
+-   Amazon : one of the largest technology companies in the world, Amazon uses Jakarta EE in its AWS platform and services.
+-   Netflix : a leading provider of streaming services, Netflix uses Jakarta EE in its backend services and applications.
+-   eBay : a popular online marketplace, eBay uses Jakarta EE in its applications and services.
+-   Airbus : a leading aircraft manufacturer, Airbus uses Jakarta EE in its engineering and manufacturing systems.
+-   BMW : a major automobile manufacturer, BMW uses Jakarta EE in its production and logistics systems.
+These are just a few examples of the many companies and organizations using Jakarta EE.
+
+Java EE/Jakarta EE provides a comprehensive set of specifications and APIs for building enterprise applications, including web services, messaging, persistence, and security, among others. It has a large ecosystem of tools and frameworks that can be used to simplify development and deployment, such as Apache TomEE, WildFly, and Open Liberty.
+
+The choice between using Spring and Java EE/Jakarta EE ultimately depends on the specific needs of the project and the preferences of the development team. Both have their own advantages and disadvantages, and it's important to carefully evaluate them before making a decision.
