@@ -6,23 +6,22 @@ Spring Core is the foundation of the entire Spring Framework and provides essent
 
 Here is the list of topics we will be covering in this tutorial:
 
-* [Introduction to Spring Framework](#)
+* [Introduction to Spring Framework](#introduction-to-spring-framework)
     - [What is Spring?](#what-is-spring)
     - [History and evolution of Spring Framework](#history-and-evolution-of-spring-framework)
     - [Advantages and disadvantages of using Spring Framework](#advantages-and-disadvantages-of-using-spring-framework)
     - [Alternative frameworks to Spring](#alternative-frameworks-to-spring)
     - [Spring framework vs Java EE](#spring-framework-vs-java-ee)
-        -   [Which one to Choose](#which-one-to-choose)
-        -   [Why Spring is more popular](#why-spring-is-more-popular)
+        -   [Which one to Choose?](#which-one-to-choose)
+        -   [Why Spring is more popular?](#why-spring-is-more-popular)
         -   [Jakarta EE compare to Spring](#jakarta-ee-compare-to-spring)
-        -   [Does it mean they are bad solutions compared to the spring framework](#does-it-mean-they-are-bad-solutions-compared-to-the-spring-framework)
+        -   [Does it mean they are bad solutions compared to the spring framework?](#does-it-mean-they-are-bad-solutions-compared-to-the-spring-framework-)
     - [The Spring ecosystem](#the-spring-ecosystem)
-* [Inversion of Control (IoC)](#)
-    - [The Evolution of IoC: A Brief History](#)
-    - [How Inversion of Control (IoC) is Like Ordering at a Restaurant!](#)
-    - [Spring and IoC](#)
-    -
-
+* [Inversion of Control (IoC)](#inversion-of-control--ioc-)
+    - [The Evolution of IoC: A Brief History](#the-evolution-of-ioc--a-brief-history)
+    - [Inverting Control: Real-world examples of IoC in action](#inverting-control--real-world-examples-of-ioc-in-action)
+    - [Inversion of Control (IoC) Design Pattern in Software Engineering](#inversion-of-control--ioc--design-pattern-in-software-engineering)
+    - [IoC and the separation of concerns between the framework and the application](#ioc-and-the-separation-of-concerns-between-the-framework-and-the-application)
 
 
 Throughout this tutorial, we will explore the key features of Spring Core and how they can help you build robust and maintainable applications.
@@ -39,6 +38,8 @@ In the Spring Testing section, we'll explore unit testing and integration testin
 Finally,The best practices and common pitfalls section covers common Spring anti-patterns, tips for writing clean and maintainable code, and best practices for testing Spring applications.
 
 We encourage you to let us know your feedback and suggestions by opening an issue in our repository. We also welcome contributions from the community, so if you have any improvements or new sections to add, feel free to open a pull request. Let's get started!
+
+# Introduction to Spring Framework
 
 ## What is Spring?
 Spring is a popular open-source application framework for building enterprise-level Java applications. It provides a comprehensive programming and configuration model for modern Java-based enterprise applications. Spring is designed to address the complexity and challenges of enterprise application development by providing an easy-to-use, modular and flexible programming model.
@@ -221,3 +222,71 @@ Spring Batch: This module provides a framework for building batch processing app
 Spring Cloud: This module provides a set of tools and frameworks for building cloud-native applications using Spring. It includes features such as service discovery, distributed configuration, and circuit breaking, as well as support for various cloud platforms.
 
 These modules, among others, make up the Spring ecosystem, providing developers with a wide range of tools to choose from when building their applications. By using the right combination of modules, developers can create applications that are efficient, scalable, and maintainable.
+
+# Inversion of Control (IoC)
+
+## The Evolution of IoC: A Brief History
+
+The concept of Inversion of Control (IoC) has been around for many years and has its roots in object-oriented programming.
+It was first introduced in the mid-1990s in the form of a design pattern called the Hollywood Principle, which states "Don't call us, we'll call you." This means that instead of the client code calling the server code, the server code calls the client code.
+
+The term "Inversion of Control" was introduced in 2004 by Martin Fowler, an expert in software engineering and design patterns.
+Fowler popularized the term in his article <a href="doc:introduction" target="_blank">"Inversion of Control Containers and the Dependency Injection pattern"</a>, which described the use of IoC containers to manage dependencies in software applications.
+
+Since then, the concept of IoC has become an important part of modern software engineering and is now widely used in many software frameworks and programming languages. 
+The Spring Framework, for example, is built around the concept of IoC and has become one of the most popular frameworks for building enterprise Java applications.
+Other popular frameworks that use IoC include .NET Core, Angular, and React.
+
+## Inverting Control: Real-world examples of IoC in action
+
+### Example 1 : Ordering in Restaurant
+
+Imagine you are going to a restaurant and ordering food. Normally, you would tell the chef what ingredients to use and how to cook the food. That means you are in control of the cooking process.
+Now, imagine you go to a different kind of restaurant where you just tell the waiter what kind of food you want, and the chef decides what ingredients to use and how to cook it. This means that the chef is in control of the cooking process, and you just provide the inputs to get the output you want.
+
+### Example 2 : Building a House
+
+Imagine you're building a house. In the traditional model of building a house, you are responsible for managing all the different contractors (plumbing, electrical,air-condition,etc.) and making sure they are working together in a coordinated way.
+You have to understand how all the pieces fit together and be constantly checking and adjusting everything to make sure it all works properly.
+
+In contrast, in the IoC model of building a house, you hire a general contractor who manages all the different subcontractors and makes sure they are working together in a coordinated way.
+You don't have to worry about the details of how the plumbing, electrical, or air-condition systems work; you just provide the general contractor with your requirements and they take care of the rest.
+
+## Inversion of Control (IoC) Design Pattern in Software Engineering
+
+In the same way, in software engineering, instead of you telling the software what to do and how to do it, the software itself decides how to do it based on the inputs you provide.
+You don't have to worry about the details of how the software works, you just provide the inputs and the software (the framework actually!) does the rest.
+The basic idea is to delegate control of the flow of execution to an external framework or container, rather than having the application code manage its own dependencies and interactions.
+In the IoC model, the dependencies are managed by an external framework or container, and the application code is simply provided with the necessary components.
+
+Let's see some examples of this pattern:
+
+### Game Engine
+
+Imagine you're a character in a video game. You have a set of skills and abilities, and you can interact with various objects and characters in the game world.
+In the traditional approach to game design, your character would need to have code that tells it how to interact with each of those objects and characters.
+
+But with IoC, the game engine itself takes care of those interactions for you. All you need to do is provide the inputs (like pressing a button to attack) and the engine takes care of the rest, including deciding what happens when you attack a particular enemy or interact with a specific object.
+This way, the game engine acts as the "container" for all the various components of the game, including your character, the enemies, and the objects in the game world.
+The engine is responsible for managing how all of these components interact with each other, so you don't have to worry about the details of how it all works. Instead, you can just focus on playing the game and having fun.
+
+### Tomcat as a Servlet Container
+
+Tomcat web server is an example of IoC. Tomcat uses IoC to manage the lifecycle of its various components, such as servlets and filters.
+These components are declared as beans and are managed by the Tomcat container, which is responsible for their instantiation, configuration, and lifecycle management.
+This allows the application code to be decoupled from the details of how the servlets and filters are managed, making it easier to maintain and update the application over time.
+
+### Kubernetes as a Container Orchestration Platform
+
+Kubernetes is an example of a software that uses IoC. Kubernetes is a container orchestration platform that manages containerized applications across a cluster of hosts.
+It uses a declarative model to define the desired state of the application, and then manages the deployment, scaling, and maintenance of the application based on that desired state.
+This means that the application code does not have to worry about the underlying infrastructure or the details of how it is deployed and managed, as Kubernetes takes care of these concerns through the use of IoC.
+
+
+## IoC and the separation of concerns between the framework and the application
+
+The framework is a general-purpose software platform that provides a set of services and functionalities, while the application is a specific software system that is built using the framework to address a specific business problem. 
+The framework is responsible for managing the dependencies and interactions between the components of the application, while the application is responsible for implementing the specific business logic or use cases.
+The IoC pattern allows for the separation of concerns between the framework and the application, allowing the application developers to focus on implementing the business logic, while the framework takes care of the details of managing the dependencies and interactions between the components.
+This makes it easier to maintain and modify the application over time, as changes to the dependencies or interactions can be made in the framework, rather than the application code itself.
+
