@@ -21,7 +21,7 @@ Here is the list of topics we will be covering in this tutorial:
     - [The Evolution of IoC: A Brief History](#the-evolution-of-ioc--a-brief-history)
     - [Inverting Control: Real-world examples of IoC in action](#inverting-control--real-world-examples-of-ioc-in-action)
     - [Inversion of Control (IoC) Design Pattern in Software Engineering](#inversion-of-control--ioc--design-pattern-in-software-engineering)
-    - [IoC and the separation of concerns between the framework and the application](#ioc-and-the-separation-of-concerns-between-the-framework-and-the-application)
+    - [IoC and Separating Concerns in Frameworks and Applications](#ioc-and-separating-concerns-in-frameworks-and-applications)
 
 
 Throughout this tutorial, we will explore the key features of Spring Core and how they can help you build robust and maintainable applications.
@@ -283,7 +283,7 @@ It uses a declarative model to define the desired state of the application, and 
 This means that the application code does not have to worry about the underlying infrastructure or the details of how it is deployed and managed, as Kubernetes takes care of these concerns through the use of IoC.
 
 
-## IoC and the separation of concerns between the framework and the application
+## IoC and Separating Concerns in Frameworks and Applications
 
 The framework is a general-purpose software platform that provides a set of services and functionalities, while the application is a specific software system that is built using the framework to address a specific business problem. 
 The framework is responsible for managing the dependencies and interactions between the components of the application, while the application is responsible for implementing the specific business logic or use cases.
