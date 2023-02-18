@@ -17,6 +17,11 @@ Here is the list of topics we will be covering in this tutorial:
         -   [Jakarta EE compare to Spring](#jakarta-ee-compare-to-spring)
         -   [Does it mean they are bad solutions compared to the spring framework](#does-it-mean-they-are-bad-solutions-compared-to-the-spring-framework)
     - [The Spring ecosystem](#the-spring-ecosystem)
+* [Inversion of Control (IoC)](#)
+    - [The Evolution of IoC: A Brief History](#)
+    - [How Inversion of Control (IoC) is Like Ordering at a Restaurant!](#)
+    - [Spring and IoC](#)
+    -
 
 
 
