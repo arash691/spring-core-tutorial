@@ -10,10 +10,10 @@ Here is the list of topics we will be covering in this tutorial:
     - [What is Spring?](#what-is-spring)
     - [History and evolution of Spring Framework](#history-and-evolution-of-spring-framework)
     - [Advantages and disadvantages of using Spring Framework](#advantages-and-disadvantages-of-using-spring-framework)
-    - [Alternative Frameworks to Spring](#alternative-frameworks-to-spring)
-    - [Spring Framework vs Java EE](#spring-framework-vs-java-ee)
-        -   [Which One to Choose](#which-one-to-choose)
-        -   [Why Spring is More Popular](#why-spring-is-more-popular)
+    - [Alternative frameworks to Spring](#alternative-frameworks-to-spring)
+    - [Spring framework vs Java EE](#spring-framework-vs-java-ee)
+        -   [Which one to Choose](#which-one-to-choose)
+        -   [Why Spring is more popular](#why-spring-is-more-popular)
         -   [Jakarta EE compare to Spring](#jakarta-ee-compare-to-spring)
         -   [Does it mean they are bad solutions compared to the spring framework](#does-it-mean-they-are-bad-solutions-compared-to-the-spring-framework)
     - [The Spring ecosystem](#the-spring-ecosystem)
@@ -87,7 +87,7 @@ It's important to keep these potential disadvantages in mind when considering wh
 
 **If you're not familiar with some of the concepts like IoC, DI, etc., don't worry! We'll cover them soon ;).**
 
-## Alternative Frameworks to Spring
+## Alternative frameworks to Spring
 There are several alternative frameworks that can be used instead of Spring Framework depending on the specific use case and requirements. Here are a few examples:
 
 -   Java EE (Jakarta EE): This is a set of specifications and APIs for enterprise Java, and provides similar features to Spring, such as dependency injection, transaction management, and web development capabilities.
@@ -102,13 +102,13 @@ There are several alternative frameworks that can be used instead of Spring Fram
 
 It's important to note that each of these frameworks has its own strengths and weaknesses, and the choice of which one to use ultimately depends on the specific requirements of the project.
 
-## Spring Framework vs Java EE
+## Spring framework vs Java EE
 
-### Which One to Choose?
+### Which one to Choose?
 
 Both Spring and Java EE (now Jakarta EE) are powerful frameworks for building enterprise-level applications in Java. Deciding which one to learn depends on various factors, including the needs of your project and the community support.
 
-### Why Spring is More Popular?
+### Why Spring is more Popular?
 
 Spring Framework is more popular than Java EE for several reasons. Firstly, Spring was introduced in 2002, while Java EE was released in 1999, which gave Spring a head start in popularity. Secondly, Spring's architecture provides a lightweight and flexible approach to developing enterprise applications, making it easier for developers to work with. In contrast, Java EE's architecture can be more complex, and it can be harder for developers to find the right tools and frameworks for their projects.
 
