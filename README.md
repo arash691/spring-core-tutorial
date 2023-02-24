@@ -22,6 +22,12 @@ Here is the list of topics we will be covering in this tutorial:
     - [Inverting Control: Real-world examples of IoC in action](#inverting-control--real-world-examples-of-ioc-in-action)
     - [Inversion of Control (IoC) Design Pattern in Software Engineering](#inversion-of-control--ioc--design-pattern-in-software-engineering)
     - [IoC and Separating Concerns in Frameworks and Applications](#ioc-and-separating-concerns-in-frameworks-and-applications)
+    - [Implement the IoC Without A Framework](#implement-the-ioc-without-a-framework)
+* [Spring and Inversion of Control](#spring-and-inversion-of-control)
+  - [Understanding the Role of ApplicationContext and Bean](#understanding-the-role-of-applicationcontext-and-bean)
+  - [What's the Container?](#whats-the-container)
+  - [How does the Spring use this concept?](#how-does-the-spring-use-this-concept)
+  - [What is a Bean in Spring?](#what-is-a-bean-in-spring)
 
 
 Throughout this tutorial, we will explore the key features of Spring Core and how they can help you build robust and maintainable applications.
@@ -290,3 +296,158 @@ The framework is responsible for managing the dependencies and interactions betw
 The IoC pattern allows for the separation of concerns between the framework and the application, allowing the application developers to focus on implementing the business logic, while the framework takes care of the details of managing the dependencies and interactions between the components.
 This makes it easier to maintain and modify the application over time, as changes to the dependencies or interactions can be made in the framework, rather than the application code itself.
 
+## Implement the IoC Without A Framework
+
+Let's see an examples that represent how we can implement the IoC in our application without using any frameworks.
+
+In order to implement IoC in your application without using a framework like Spring, we can follow a few general principles:
+
+1. Define an interface: Create an interface that defines the behavior of a class, which will be used to perform certain tasks.
+2. Implement the interface: Create a class that implements the interface, providing the actual implementation of the behavior defined in the interface.
+3. Create a factory: Create a factory class that is responsible for creating instances of the class that implements the interface.
+4. Use the factory: Use the factory class to obtain an instance of the class that implements the interface. This is typically done by passing the factory class to the code that needs the instance, and then invoking a method on the factory to obtain the instance.
+5. Configure the factory: The factory can be configured with different implementations of the class that implements the interface, allowing different behaviors to be used depending on the configuration.
+
+Here's a simple example:
+let's say we have an interface called Task that defines a method called perform().
+```java
+// Task interface
+public interface Task {
+    void perform();
+}
+```
+We could create a class called TaskImpl that implements the Task interface and provides the actual implementation of the perform() method.
+```java
+// TaskImpl class
+public class TaskImpl implements Task {
+    public void perform() {
+        System.out.println("Performing the task...");
+    }
+}
+```
+We could then create a factory class called TaskFactory that is responsible for creating instances of the TaskImpl class.
+The TaskFactory class could be used to obtain an instance of the Task class by invoking a method like createTask().
+```java
+// TaskFactory class
+public class TaskFactory {
+    private Task task;
+
+    public void setTask(Task task) {
+        this.task = task;
+    }
+
+    public Task createTask() {
+        return this.task;
+    }
+}
+```
+Finally, we could configure the TaskFactory class with different implementations of the Task interface, allowing different behaviors to be used depending on the configuration.
+```java
+// Main class
+public class Main {
+    public static void main(String[] args) {
+        // Create a new instance of TaskFactory
+        TaskFactory taskFactory = new TaskFactory();
+
+        // Set the TaskImpl instance on the TaskFactory
+        Task task = new TaskImpl();
+        taskFactory.setTask(task);
+
+        // Use the TaskFactory to obtain an instance of the Task class
+        Task taskInstance = taskFactory.createTask();
+
+        // Invoke the perform() method on the Task instance
+        taskInstance.perform();
+    }
+}
+```
+That was a simple code that represent how we can implement the IoC just by pure Java without any framework.
+
+## Spring and Inversion of Control
+
+In this section, we'll explore how the Spring IoC container works, using a simple example.
+
+Consider a scenario where we have a class called _CustomerService_ that depends on a class called _CustomerRepository_ to perform its operations. 
+The _CustomerService_ class needs an instance of _CustomerRepository_ to be available in order to function properly. 
+Without the Spring IoC container, we would need to manually instantiate _CustomerRepository_ and pass it to _CustomerService_, like this:
+
+```java
+public class CustomerService {
+  private CustomerRepository repository;
+  
+  public CustomerService() {
+    repository = new CustomerRepository();
+  }
+  // ...
+}
+```
+This approach has several drawbacks. 
+First, it tightly couples the _CustomerService_ class to the _CustomerRepository_ class, making it difficult to change the implementation of _CustomerRepository_ without modifying _CustomerService_.
+Second, it makes it difficult to manage the lifecycle of _CustomerRepository_, such as creating, configuring, and destroying instances of _CustomerRepository_.
+
+To solve these problems, we can use the Spring IoC container to manage the _CustomerRepository_ instance and inject it into _CustomerService_.
+
+Here's how it works:
+
+1.Define _CustomerRepository_ as a bean in the Spring application context.
+```xml
+<bean id="customerRepository" class="com.example.CustomerRepository" />
+```
+2.Define _CustomerService_ as a bean in the Spring application context and inject _customerRepository_ into it
+```xml
+<bean id="customerService" class="com.example.CustomerService">
+  <property name="repository" ref="customerRepository" />
+</bean>
+```
+3.Retrieve the _CustomerService_ instance from the Spring application context.
+```java
+public class MyApplication {
+    public static void main(String[] args) {
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        CustomerService customerService = (CustomerService) context.getBean("customerService");
+        //...
+    }
+}
+```
+Let's break down each step in more detail:
+
+1. Define _CustomerRepository_ as a bean in the Spring application context. 
+We define _CustomerRepository_ as a bean in the Spring application context using an XML configuration file.
+The _id_ attribute gives the bean a unique identifier, and the _class_ attribute specifies the class to be instantiated. 
+By defining _CustomerRepository_ as a bean in the Spring context, we allow the Spring IoC container to manage its lifecycle and dependencies.
+
+2. Define _CustomerService_ as a bean in the Spring application context and inject _customerRepository_ into it.
+We define _CustomerService_ as a bean in the Spring application context using an XML configuration file. The property element specifies the repository property of _CustomerService_ and sets its value to the _customerRepository_ bean using the ref attribute.
+This is known as dependency injection, where the Spring IoC container injects the _customerRepository_ bean into the repository property of _CustomerService_.
+
+3. Retrieve the _CustomerService_ instance from the Spring application context.
+We retrieve the _CustomerService_ instance from the Spring application context using the _getBean()_ method. 
+This method takes the unique identifier of the _CustomerService_ bean, which is _customerService_, and returns an instance of _CustomerService_ that has been instantiated, configured, and managed by the Spring IoC container. 
+Because _customerRepository_ is injected into _CustomerService_ by the Spring IoC container, we don't need to manually instantiate _CustomerRepository_ in the _CustomerService_ constructor.
+
+### Understanding the Role of ApplicationContext and Bean
+
+We've reviewed some code and instructions, and now it's time to dive deeper into what's really going on.
+
+### What's the Container?
+
+The main idea behind the container and Inversion of Control (IoC) is to promote a separation of concerns in software development by decoupling dependencies between components. 
+The container acts as a centralized hub, responsible for creating and managing the lifecycle of objects, while IoC ensures that the flow of control is inverted, allowing for components to rely on abstractions rather than concrete implementations.
+This promotes modularization, maintainability, and scalability, as it allows components to be developed independently and easily swapped out without affecting the rest of the system. Additionally, it enables developers to write more flexible and loosely coupled code, leading to easier testing, debugging, and overall code quality.
+
+### How does the Spring use this concept?
+
+In the Spring framework, the container responsible for managing objects and their dependencies is called the _ApplicationContext_. 
+It creates and manages instances of beans and provides them with their required dependencies based on the configuration provided in the application context.
+The _ApplicationContext_ is built on the principles of Inversion of Control (IoC) and Dependency Injection (DI).
+
+### What is a Bean in Spring?
+
+In the Spring, a bean is a class that is instantiated, assembled, and managed by the Spring IoC container. 
+The IoC container takes care of the creation, initialization, and wiring of the beans. The beans can be configured using various techniques, such as annotations, XML, or Java configuration classes.
+A bean can have dependencies on other beans, and these dependencies are resolved by the IoC container at runtime.
+
+In other words, instead of the application controlling the creation and management of its objects, the _ApplicationContext_ controls it.
+The application simply declares its dependencies, and the _ApplicationContext_ provides them.
+To configure the _ApplicationContext_, we can use an XML file called _applicationContext.xml_, which defines the beans and their dependencies. 
+This file includes information about the beans such as their class, properties, and dependencies.
