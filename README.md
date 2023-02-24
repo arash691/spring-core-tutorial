@@ -28,6 +28,9 @@ Here is the list of topics we will be covering in this tutorial:
   - [What's the Container?](#whats-the-container)
   - [How does the Spring use this concept?](#how-does-the-spring-use-this-concept)
   - [What is a Bean in Spring?](#what-is-a-bean-in-spring)
+  - [ApplicationContext as an Implementation of AbstractFactory Pattern](#applicationcontext-as-an-implementation-of-abstractfactory-pattern)
+  - [Implementations of the ApplicationContext](#implementations-of-the-applicationcontext)
+    - [ClassPathXmlApplicationContext](#classpathxmlapplicationcontext)
 
 
 Throughout this tutorial, we will explore the key features of Spring Core and how they can help you build robust and maintainable applications.
@@ -451,3 +454,103 @@ In other words, instead of the application controlling the creation and manageme
 The application simply declares its dependencies, and the _ApplicationContext_ provides them.
 To configure the _ApplicationContext_, we can use an XML file called _applicationContext.xml_, which defines the beans and their dependencies. 
 This file includes information about the beans such as their class, properties, and dependencies.
+
+### ApplicationContext as an Implementation of AbstractFactory Pattern
+
+Spring's _ApplicationContext_ can be seen as an implementation of the Abstract Factory design pattern. 
+The Abstract Factory pattern provides an interface for creating families of related objects without specifying their concrete classes. Similarly, Spring's _ApplicationContext_ provides a way to create and manage related objects that are defined in a configuration file, without requiring the code to know the concrete classes of those objects.
+In the case of Spring, the _ApplicationContext_ interface defines the contract for creating and managing beans, which are the objects that form the backbone of a Spring application. Each implementation of the _ApplicationContext_ interface is responsible for creating and managing beans based on a particular configuration format or source.
+For example, the _ClassPathXmlApplicationContext_ implementation creates and manages beans based on XML configuration files located on the classpath.
+
+When a Spring application starts up, the _ApplicationContext_ implementation reads the configuration file(s) and creates the corresponding beans, which can be retrieved by name or type. 
+The _ApplicationContext_ acts as an Abstract Factory in this process, providing a common interface for creating and managing objects, while allowing the concrete implementations to vary based on the specific configuration used by the application.
+
+Spring's ApplicationContext is an implementation of the Abstract Factory pattern, providing a flexible way to create and manage related objects based on configuration files, while decoupling the code from the concrete classes of those objects.
+
+### Implementations of the ApplicationContext
+
+The _ApplicationContext_ interface has several implementations, each suited for a different use case. Here are some of the most commonly used implementations:
+
+1. **ClassPathXmlApplicationContext**: This implementation loads the container configuration from one or more XML files on the classpath. It is suitable for most standalone applications and is the most commonly used ApplicationContext implementation.
+
+2. **FileSystemXmlApplicationContext**: This implementation loads the container configuration from one or more XML files in the filesystem. It is useful for applications that require more control over the location of configuration files.
+
+3. **AnnotationConfigApplicationContext**: This implementation loads the container configuration from one or more Java classes annotated with @Configuration. It is useful for applications that prefer to configure the container using Java code instead of XML.
+
+4. **XmlWebApplicationContext**: This implementation loads the container configuration from one or more XML files in a web application. It is suitable for web applications that use Spring's web framework.
+
+5. **ServletContextAwareWebApplicationContext**: This implementation extends XmlWebApplicationContext and adds support for accessing the ServletContext of a web application. It is suitable for web applications that require access to the ServletContext.
+
+6. **RemoteApplicationContext**: This implementation allows an application to access a remote ApplicationContext over a network using Java RMI (Remote Method Invocation). It is useful for distributed applications that require access to a central configuration server.
+
+Let's review each one in detail.
+
+### ClassPathXmlApplicationContext
+
+_ClassPathXmlApplicationContext_ is an implementation of the _ApplicationContext_ interface in Spring that is used to create a container from one or more XML configuration files located in the classpath. 
+It is a convenient way to configure and bootstrap a Spring application, as it allows developers to define beans and their dependencies in an easy-to-read XML format.
+
+Use cases:
+
+- _ClassPathXmlApplicationContext_ is commonly used in small to medium-sized Spring applications where the entire application can be configured using a single XML configuration file.
+
+- It is also useful when developing unit tests for Spring applications, as it allows developers to quickly create a container and inject test dependencies.
+
+Suppose we have a simple Spring application that contains a _Person_ class and a _GreetingService_ interface with two implementations: _EnglishGreetingService_ and _FrenchGreetingService_. 
+We can use _ClassPathXmlApplicationContext_ to create a container that manages the dependencies between these classes.
+
+1. First, we create an XML configuration file called _applicationContext.xml_ that defines the beans for our application:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Define the Person bean -->
+    <bean id="person" class="com.example.Person">
+        <property name="name" value="John"/>
+        <property name="age" value="30"/>
+    </bean>
+
+    <!-- Define the EnglishGreetingService bean -->
+    <bean id="englishGreetingService" class="com.example.EnglishGreetingService">
+        <property name="message" value="Hello"/>
+    </bean>
+
+    <!-- Define the FrenchGreetingService bean -->
+    <bean id="frenchGreetingService" class="com.example.FrenchGreetingService">
+        <property name="message" value="Bonjour"/>
+    </bean>
+    
+</beans>
+```
+2. Next, we create a Java class called Main that uses _ClassPathXmlApplicationContext_ to create the container and retrieve the beans:
+```java
+public class Main {
+    public static void main(String[] args) {
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+
+        // Retrieve the Person bean
+        Person person = context.getBean("person", Person.class);
+        System.out.println(person);
+
+        // Retrieve the EnglishGreetingService bean and use it to greet the person
+        GreetingService englishGreetingService = context.getBean("englishGreetingService", GreetingService.class);
+        String englishGreeting = englishGreetingService.greet(person);
+        System.out.println(englishGreeting);
+
+        // Retrieve the FrenchGreetingService bean and use it to greet the person
+        GreetingService frenchGreetingService = context.getBean("frenchGreetingService", GreetingService.class);
+        String frenchGreeting = frenchGreetingService.greet(person);
+        System.out.println(frenchGreeting);
+    }
+}
+```
+3. Finally, we run the Main class, which uses the container to create and manage the beans:
+```text
+John (age 30)
+Hello, John!
+Bonjour, John!
+```
+In this example, _ClassPathXmlApplicationContext_ is used to create a container from the _applicationContext.xml_ file, which defines three beans: _Person_, _EnglishGreetingService_, and _FrenchGreetingService_. 
+The Main class retrieves the beans from the container and uses them to greet the Person bean.
