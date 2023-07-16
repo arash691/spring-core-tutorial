@@ -389,6 +389,7 @@ public class CustomerService {
 This approach has several drawbacks. 
 First, it tightly couples the _CustomerService_ class to the _CustomerRepository_ class, making it difficult to change the implementation of _CustomerRepository_ without modifying _CustomerService_.
 Second, it makes it difficult to manage the lifecycle of _CustomerRepository_, such as creating, configuring, and destroying instances of _CustomerRepository_.
+Third, when writing unit tests, it will not be possible to inject a mock object instead of a real _CustomerRepository_.
 
 To solve these problems, we can use the Spring IoC container to manage the _CustomerRepository_ instance and inject it into _CustomerService_.
 
