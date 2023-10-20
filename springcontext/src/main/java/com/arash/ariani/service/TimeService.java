@@ -1,4 +1,4 @@
-package com.arash.ariani;
+package com.arash.ariani.service;
 
 import java.time.LocalTime;
 import java.time.ZoneId;
